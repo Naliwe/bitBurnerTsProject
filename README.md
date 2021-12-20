@@ -24,7 +24,8 @@ you change them.
 ## Quickstart
 
 - In `Git Bash` or `bash`
-  - clone / fork the repo
+  - clone / fork the repo. You can also click Use as template in
+    GitHub to create a repo form this one
   - run `npm install`
   - run `npm run build`
   - run `npm run webserver`
