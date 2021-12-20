@@ -42,6 +42,10 @@ After the first pull, I usually make an alias
 `alias pull="run /bin/utils/pullFiles.ns"` to make things more
 convenient.
 
+You can leave the server running and just `npm run re` to clean
+rebuild the whole project, then use the `pull` alias in-game
+whenever you want to update your scripts.
+
 # Description
 
 A short description of the most important parts of the template.
