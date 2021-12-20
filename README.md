@@ -4,8 +4,8 @@ This is a starter repo for anyone wanting to use TypeScript to play
 BitBurner!
 
 The template relies on a number of things that you can probably change
-to your liking; just be aware they exist; you might need to fiddle with
-settings if you change them.
+to your liking; just be aware you might need to fiddle with settings if
+you change them.
 
 # Usage
 
@@ -60,7 +60,7 @@ A short description of the most important parts of the template.
 - `clean`: cleans build folder
 - `copyResources`: `cp`s resources to build folder
 - `re`: I like make, sue me :|
-- `webserver`: runs the tiny webserver that will server your scripts so
+- `webserver`: runs the tiny webserver that will serve your scripts so
   that you can `wget` them from the game.
 
 ## TypeScript compiler configuration (`tsconfig.json`)
@@ -93,7 +93,7 @@ A short description of the most important parts of the template.
 - `outDir` is used by the scripts in the `bin` folder. Be sure to change
   them accordingly if you change that.
 
-These are the important bits in the `tsc` config; the rest is optimal.
+These are the important bits in the `tsc` config; the rest is optional.
 
 ## Bash scripts and webserver
 
