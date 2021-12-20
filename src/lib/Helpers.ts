@@ -65,7 +65,7 @@ class RepoInit {
     ns: NS;
     logger: TermLogger;
 
-    constructor(ns: NS, logger: TermLogger) {
+    constructor(ns: NS, logger: TermLogger = new TermLogger(ns)) {
         this.ns = ns;
         this.logger = logger;
     }
@@ -77,6 +77,11 @@ class RepoInit {
                 dest: line.substring(1),
             }
             : null;
+    }
+
+    async pullScripts() {
+        await this.getManifest();
+        await this.downloadAllFiles();
     }
 
     async getManifest() {
