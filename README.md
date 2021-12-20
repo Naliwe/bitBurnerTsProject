@@ -127,6 +127,9 @@ completely optional.
 - `src/bin/utils/initRepo.ts`: A simple script with no references. Used
   to init the repo the first time when no files are available on the
   game home server.
+- `src/bin/utils/pullFiles.ts`: Utility script that `wget`s the
+  `manifest.txt` file from the server and downloads all scripts to the
+  same location on the game home.
 - `src/lib/Helpers.ts`: Just some helper functions to make things neater
   in executable scripts.
 
@@ -154,7 +157,9 @@ Always check that your IDE / tools don't import modules like this:
 import { Blep } from "../lib/Blep";
 ```
 
-BitBurner doesn't understand relative path, so even though this will compile fine, it will not run in-game. Make sure they look like this instead (absolute path, c.f previous paragraph):
+BitBurner doesn't understand relative path, so even though this will
+compile fine, it will not run in-game. Make sure they look like this
+instead (absolute path, c.f previous paragraph):
 
 ```typescript
 import { Blep } from "/lib/Blep";
