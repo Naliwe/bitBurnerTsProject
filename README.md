@@ -9,6 +9,18 @@ you change them.
 
 # Usage
 
+## Requirements
+
+- `npm`: The Node Package Manager
+  - It's recommended to use a version manager like
+    [nvm](https://github.com/nvm-sh/nvm#about)
+  - Alternatively, you can just use
+    [Node](https://nodejs.org/en/download/)
+- A `bash`-capable environment. This has been tested on `debian`, `WSL`,
+  and `git-bash`
+- `tsc`: The
+  [TypeScript compiler](https://www.typescriptlang.org/download)
+
 ## Quickstart
 
 - In `Git Bash` or `bash`
