@@ -38,6 +38,10 @@ you change them.
 If you see the colored output until the fake error, you should be good
 to go :)
 
+After the first pull, I usually make an alias
+`alias pull="run /bin/utils/pullFiles.ns"` to make things more
+convenient.
+
 # Description
 
 A short description of the most important parts of the template.
