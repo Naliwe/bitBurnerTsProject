@@ -101,8 +101,9 @@ A short description of the most important parts of the template.
 ```
 
 - `target` and `module`: Set to generate 'raw' js to avoid any
-  compatibility errors in NS. I did not test everything, but these seem
-  to work.
+  compatibility errors in NS. I did not test every possible value,
+  but these seem to work. `commonjs` fails, so does `es5`, because
+  of the generated `Object.setPorperty(exports ...)` and such.
 - `rootDir` `baseUrl` and `paths`: Allows replacing import references
   with an absolute path.
 - You can change `lib` to whatever you want, or even add more if you
@@ -111,6 +112,7 @@ A short description of the most important parts of the template.
   them accordingly if you change that.
 
 These are the important bits in the `tsc` config; the rest is optional.
+Refer to the `tsc` documentation if you want to make modifications.
 
 ## Bash scripts and webserver
 
@@ -136,6 +138,9 @@ located in `src/lib/Bitburner.t.ts` and is taken directly from the
 'Executable scripts' are located in the `src/bin` subfolder and will
 generally contain main functions. This is just for tidiness and
 completely optional.
+
+'Library' files are stored in `src/lib` to make it easier to make sure
+links are correct when generating `.ns` files.
 
 ### Files
 
