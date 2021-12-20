@@ -4,8 +4,30 @@ This is a starter repo for anyone wanting to use TypeScript to play
 BitBurner!
 
 The template relies on a number of things that you can probably change
-to your liking; just be aware they exist and you might need to fiddle
-with settings if you change them.
+to your liking; just be aware they exist; you might need to fiddle with
+settings if you change them.
+
+# Usage
+
+## Quickstart
+
+- In `Git Bash` or `bash`
+  - clone / fork the repo
+  - run `npm install`
+  - run `npm run build`
+  - run `npm run webserver`
+- Go to the game
+  - `wget http://localhost:9182/bin/utils/initRepo.ns
+    /bin/utils/initRepo.ns`
+  - `run /bin/utils/initRepo.ns`
+  - `run /bin/sayHelloTs.ns`
+
+If you see the colored output until the fake error, you should be good
+to go :)
+
+# Description
+
+A short description of the most important parts of the template.
 
 ## package.json
 
@@ -86,12 +108,34 @@ These are the important bits in the `tsc` config; the rest is optimal.
 These helper scripts are called by `npm run` commands listed in
 `package.json`.
 
-## Recommendations
+## Code
+
+### Organisation
+
+The type definition for NetScript (the `NS` type and other game APIs) is
+located in `src/lib/Bitburner.t.ts` and is taken directly from the
+[Bitburner repo](https://github.com/danielyxie/bitburner/blob/dev/dist/bitburner.d.ts).
+
+'Executable scripts' are located in the `src/bin` subfolder and will
+generally contain main functions. This is just for tidiness and
+completely optional.
+
+### Files
+
+- `src/bin/sayHelloTs.ts`: A sample script referencing utils and logging
+  dummy string to the terminal to test the setup.
+- `src/bin/utils/initRepo.ts`: A simple script with no references. Used
+  to init the repo the first time when no files are available on the
+  game home server.
+- `src/lib/Helpers.ts`: Just some helper functions to make things neater
+  in executable scripts.
+
+# Recommendations
 
 I would recommend not putting any files in the root of the `src` folder.
 For some reason, I had a lot of problems when trying to get them from
 the `wget` cmdlet in-game. It creates a ghost `/` folder in-game,
-sometimes creates ghost files, etc..
+sometimes creates ghost files, etc...
 
 Just putting everything in a subfolder (like `src/lib` or `src/bin`)
 seems to be a workaround.
