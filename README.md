@@ -7,6 +7,40 @@ The template relies on a number of things that you can probably change
 to your liking; just be aware they exist and you might need to fiddle
 with settings if you change them.
 
+## package.json
+
+```json
+{
+  "scripts": {
+    "build": "npm-run-all copyResources buildTs buildNS buildManifest",
+    "buildTs": "tsc -p tsconfig.json",
+    "buildNS": "bin/buildNS.bash",
+    "buildManifest": "bin/generateManifest.bash",
+    "clean": "rm -rf build/*",
+    "copyResources": "mkdir -p src/resources; cp -r src/resources build",
+    "re": "npm-run-all clean copyResources buildTs buildNS buildManifest",
+    "webserver": "node bin/webserver.js -p 9182 -d build --enable_cors"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
+```
+
+- `build`: Runs everything necessary to build `ts` files into js and
+  convert `js` files to `ns` before writing their paths to the
+  `resources/manifest.txt` file.
+- `buildTs`: runs `tsc`
+- `buildNS`: runs the `bin/buildNS.bash` script to convert `.js` to
+  `.ns`
+- `buildManifest`: runs the `bin/generateManifest.bash` to generate
+  `resources/manifest.txt` file containing paths to all your scripts.
+- `clean`: cleans build folder
+- `copyResources`: `cp`s resources to build folder
+- `re`: I like make, sue me :|
+- `webserver`: runs the tiny webserver that will server your scripts so
+  that you can `wget` them from the game.
+
 ## TypeScript compiler configuration (`tsconfig.json`)
 
 ```json
@@ -37,7 +71,20 @@ with settings if you change them.
 - `outDir` is used by the scripts in the `bin` folder. Be sure to change
   them accordingly if you change that.
 
-  These are the important bits in the `tsc` config; the rest is optimal.
+These are the important bits in the `tsc` config; the rest is optimal.
+
+## Bash scripts and webserver
+
+- `bin/webserver.js`: Just a webserver that serves the `build` folder to
+  be able to `wget` your scripts from the game.
+- `bin/buildNS.bash`: Simple script that appends `.ns` to `imports` in
+  javascript files before converting them to `.ns`.
+- `bin/generateManifest.bash`: Simple script that `find`s every `.ns` in
+  the build folder and writes its path to `resources/manifest.txt`. This
+  is used to pull all files on your in-game filesystem.
+
+These helper scripts are called by `npm run` commands listed in
+`package.json`.
 
 ## Recommendations
 
@@ -57,3 +104,6 @@ their absolute version. **If you want to add more than just the
 `src/lib` folder to these `roots`, you need to change the settings
 `paths` in the `tsconfig.json` file**
 
+# Contributing
+
+Feel free to send PRs!
