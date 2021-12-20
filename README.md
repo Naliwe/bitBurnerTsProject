@@ -148,6 +148,26 @@ their absolute version. **If you want to add more than just the
 `src/lib` folder to these `roots`, you need to change the settings
 `paths` in the `tsconfig.json` file**
 
+Always check that your IDE / tools don't import modules like this:
+
+```typescript
+import { Blep } from "../lib/Blep";
+```
+
+BitBurner doesn't understand relative path, so even though this will compile fine, it will not run in-game. Make sure they look like this instead (absolute path, c.f previous paragraph):
+
+```typescript
+import { Blep } from "/lib/Blep";
+```
+
+This would result in this javascript:
+
+```js
+import { Blep } from "/lib/Blep";
+```
+
+which is valid for the game.
+
 # Contributing
 
 Feel free to send PRs!
