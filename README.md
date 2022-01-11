@@ -25,7 +25,7 @@ you change them.
 
 - In `Git Bash` or `bash`
   - clone / fork the repo. You can also click Use as template in
-    GitHub to create a repo form this one
+    GitHub to create a repo from this one
   - run `npm install`
   - run `npm run build`
   - run `npm run webserver`
@@ -55,13 +55,13 @@ A short description of the most important parts of the template.
 ```json
 {
   "scripts": {
-    "build": "npm-run-all copyResources buildTs buildNS buildManifest",
+    "build": "npm-run-all buildTs copyResources buildNS buildManifest",
     "buildTs": "tsc -p tsconfig.json",
     "buildNS": "bin/buildNS.bash",
     "buildManifest": "bin/generateManifest.bash",
     "clean": "rm -rf build/*",
     "copyResources": "mkdir -p src/resources; cp -r src/resources build",
-    "re": "npm-run-all clean copyResources buildTs buildNS buildManifest",
+    "re": "npm-run-all clean buildTs copyResources buildNS buildManifest",
     "webserver": "node bin/webserver.js -p 9182 -d build --enable_cors"
   },
   "devDependencies": {
@@ -83,6 +83,8 @@ A short description of the most important parts of the template.
 - `re`: I like make, sue me :|
 - `webserver`: runs the tiny webserver that will serve your scripts so
   that you can `wget` them from the game.
+  - Careful with the server, CORS are activated, so do not serve any
+  sensitive data! You never know~
 
 ## TypeScript compiler configuration (`tsconfig.json`)
 
