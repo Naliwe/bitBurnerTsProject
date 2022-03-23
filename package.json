@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "npm-run-all buildTs copyResources buildNS buildManifest",
+    "build": "npm-run-all buildTs copyResources buildManifest",
     "buildTs": "tsc -p tsconfig.json",
     "buildNS": "bin/buildNS.bash",
     "buildManifest": "bin/generateManifest.bash",
