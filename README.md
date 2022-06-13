@@ -16,14 +16,11 @@ you change them.
     [nvm](https://github.com/nvm-sh/nvm#about)
   - Alternatively, you can just use
     [Node](https://nodejs.org/en/download/)
-- A `bash`-capable environment. This has been tested on `debian`, `WSL`,
   and `git-bash`
-- `tsc`: The
-  [TypeScript compiler](https://www.typescriptlang.org/download)
 
 ## Quickstart
 
-- In `Git Bash` or `bash`
+- In `Git Bash` or `terminal`
   - clone / fork the repo. You can also click Use as template in
     GitHub to create a repo from this one
   - run `npm install`
@@ -55,17 +52,17 @@ A short description of the most important parts of the template.
 ```json
 {
   "scripts": {
-    "build": "npm-run-all buildTs copyResources buildNS buildManifest",
+    "build": "npm-run-all buildTs buildManifest",
     "buildTs": "tsc -p tsconfig.json",
-    "buildNS": "bin/buildNS.bash",
-    "buildManifest": "bin/generateManifest.bash",
+    "buildManifest": "node bin/generateManifest.js",
     "clean": "rm -rf build/*",
-    "copyResources": "mkdir -p src/resources; cp -r src/resources build",
-    "re": "npm-run-all clean buildTs copyResources buildNS buildManifest",
+    "re": "npm-run-all clean buildTs buildManifest",
     "webserver": "node bin/webserver.js -p 9182 -d build --enable_cors"
   },
   "devDependencies": {
-    "npm-run-all": "^4.1.5"
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.7.3"
   }
 }
 ```
@@ -74,12 +71,9 @@ A short description of the most important parts of the template.
   convert `js` files to `ns` before writing their paths to the
   `resources/manifest.txt` file.
 - `buildTs`: runs `tsc`
-- `buildNS`: runs the `bin/buildNS.bash` script to convert `.js` to
-  `.ns`
-- `buildManifest`: runs the `bin/generateManifest.bash` to generate
+- `buildManifest`: runs the `bin/generateManifest.js` to generate
   `resources/manifest.txt` file containing paths to all your scripts.
 - `clean`: cleans build folder
-- `copyResources`: `cp`s resources to build folder
 - `re`: I like make, sue me :|
 - `webserver`: runs the tiny webserver that will serve your scripts so
   that you can `wget` them from the game.
@@ -124,9 +118,7 @@ Refer to the `tsc` documentation if you want to make modifications.
 
 - `bin/webserver.js`: Just a webserver that serves the `build` folder to
   be able to `wget` your scripts from the game.
-- `bin/buildNS.bash`: Simple script that appends `.ns` to `imports` in
-  javascript files before converting them to `.ns`.
-- `bin/generateManifest.bash`: Simple script that `find`s every `.ns` in
+- `bin/generateManifest.js`: Simple script that `find`s every `.js` in
   the build folder and writes its path to `resources/manifest.txt`. This
   is used to pull all files on your in-game filesystem.
 
@@ -146,7 +138,7 @@ generally contain main functions. This is just for tidiness and
 completely optional.
 
 'Library' files are stored in `src/lib` to make it easier to make sure
-links are correct when generating `.ns` files.
+links are correct when generating `.js` files.
 
 ### Files
 
