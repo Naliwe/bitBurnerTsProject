@@ -127,7 +127,7 @@ These helper scripts are called by `npm run` commands listed in
 
 ## Code
 
-### Organisation
+### Organization
 
 The type definition for NetScript (the `NS` type and other game APIs) is
 located in `src/lib/Bitburner.t.ts` and is taken directly from the
