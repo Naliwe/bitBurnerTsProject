@@ -8,10 +8,6 @@
     "webserver": "node bin/webserver.js -p 9182 -d build --enable_cores"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.27.1",
-    "@typescript-eslint/parser": "^5.27.1",
-    "eslint": "^8.17.0",
-    "eslint-config-google": "^0.14.0",
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
     "typescript": "^4.7.3"
