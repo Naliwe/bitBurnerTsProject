@@ -26,6 +26,7 @@ you change them.
 - In `Git Bash` or `bash`
   - clone / fork the repo. You can also click Use as template in
     GitHub to create a repo from this one
+  - run `chmod +x bin/*.bash`
   - run `npm install`
   - run `npm run build`
   - run `npm run webserver`
