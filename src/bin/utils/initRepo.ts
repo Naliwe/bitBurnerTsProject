@@ -7,12 +7,12 @@ const params = {
         destFile: "/resources/manifest.txt",
     },
     helpers: {
-        sourceFile: "lib/Helpers.ns",
-        destFile: "/lib/Helpers.ns",
+        sourceFile: "lib/Helpers.js",
+        destFile: "/lib/Helpers.js",
     },
     pullFiles: {
-        sourceFile: "bin/utils/pullFiles.ns",
-        destFile: "/bin/utils/pullFiles.ns",
+        sourceFile: "bin/utils/pullFiles.js",
+        destFile: "/bin/utils/pullFiles.js",
     },
 };
 
