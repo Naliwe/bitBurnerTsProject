@@ -12,25 +12,25 @@ you change them.
 ## Requirements
 
 - `npm`: The Node Package Manager
-  - It's recommended to use a version manager like
-    [nvm](https://github.com/nvm-sh/nvm#about)
-  - Alternatively, you can just use
-    [Node](https://nodejs.org/en/download/)
-  and `git-bash`
+    - It's recommended to use a version manager like
+      [nvm](https://github.com/nvm-sh/nvm#about)
+    - Alternatively, you can just use
+      [Node](https://nodejs.org/en/download/)
+      and `git-bash`
 
 ## Quickstart
 
 - In `Git Bash` or `terminal`
-  - clone / fork the repo. You can also click Use as template in
-    GitHub to create a repo from this one
-  - run `npm install`
-  - run `npm run build`
-  - run `npm run webserver`
+    - clone / fork the repo. You can also click Use as template in
+      GitHub to create a repo from this one
+    - run `npm install`
+    - run `npm run build`
+    - run `npm run webserver`
 - Go to the game
-  - `wget http://localhost:9182/bin/utils/initRepo.js
-    /bin/utils/initRepo.js`
-  - `run /bin/utils/initRepo.js`
-  - `run /bin/sayHelloTs.js`
+    - `wget http://localhost:9182/bin/utils/initRepo.js
+      /bin/utils/initRepo.js`
+    - `run /bin/utils/initRepo.js`
+    - `run /bin/sayHelloTs.js`
 
 If you see the colored output until the fake error, you should be good
 to go :)
@@ -77,26 +77,28 @@ A short description of the most important parts of the template.
 - `re`: I like make, sue me :|
 - `webserver`: runs the tiny webserver that will serve your scripts so
   that you can `wget` them from the game.
-  - Careful with the server, CORS are activated, so do not serve any
-  sensitive data! You never know~
+    - Careful with the server, CORS are activated, so do not serve any
+      sensitive data! You never know~
 
 ## TypeScript compiler configuration (`tsconfig.json`)
 
 ```json
 {
-	"compilerOptions": {
-		"target": "ES2021",
-		"module": "ES2020",
-		"rootDir": "src/",
-		"baseUrl": "src/",
-		"paths": {
-			"/lib/*": [ "lib/*" ]
-		},
-		"outDir": "build/",
-		"moduleResolution": "node",
-		"strictNullChecks": true,
-		"strictPropertyInitialization": true
-	}
+  "compilerOptions": {
+    "target": "ES2021",
+    "module": "ES2020",
+    "rootDir": "src/",
+    "baseUrl": "src/",
+    "paths": {
+      "/lib/*": [
+        "lib/*"
+      ]
+    },
+    "outDir": "build/",
+    "moduleResolution": "node",
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true
+  }
 }
 ```
 
@@ -131,7 +133,7 @@ These helper scripts are called by `npm run` commands listed in
 
 The type definition for NetScript (the `NS` type and other game APIs) is
 located in `src/lib/Bitburner.t.ts` and is taken directly from the
-[Bitburner repo](https://github.com/danielyxie/bitburner/blob/dev/dist/bitburner.d.ts).
+[Bitburner repo](https://github.com/bitburner-official/bitburner-src/blob/dev/src/ScriptEditor/NetscriptDefinitions.d.ts).
 
 'Executable scripts' are located in the `src/bin` subfolder and will
 generally contain main functions. This is just for tidiness and
@@ -188,7 +190,7 @@ import { Blep } from "/lib/Blep";
 This would result in this javascript:
 
 ```js
-import { Blep } from "/lib/Blep";
+import {Blep} from "/lib/Blep";
 ```
 
 which is valid for the game.

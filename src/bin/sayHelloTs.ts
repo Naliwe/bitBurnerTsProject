@@ -1,5 +1,5 @@
-import {NS} from "Bitburner";
-import {TermLogger} from "/lib/Helpers";
+import { TermLogger } from "/lib/Helpers";
+import { NS }         from "Bitburner";
 
 /** @param {NS} ns **/
 export async function main(ns: NS) {

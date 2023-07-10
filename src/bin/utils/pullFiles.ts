@@ -1,8 +1,9 @@
-import type {NS} from "Bitburner";
-import {RepoInit} from "/lib/Helpers";
+import { RepoInit, TermLogger } from "/lib/Helpers";
+import type { NS }              from "Bitburner";
 
 export async function main(ns: NS) {
-    const initRepo = new RepoInit(ns);
+    const logger   = new TermLogger(ns);
+    const initRepo = new RepoInit(ns, logger);
 
-    await initRepo.pullScripts();
+    await initRepo.downloadAllFiles();
 }
